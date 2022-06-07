@@ -1,0 +1,59 @@
+body 
+{
+  background-color: #48ABD5;
+}
+
+#title 
+{
+    font-size: 85px;
+    width: 100%;
+    margin: 2% 2%;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: #FFFFFF;
+}
+
+#inner-title{
+    font-size: 1.5em;
+    font-family: 'Lobster', cursive;
+    color: #FFFFFF;
+}
+
+#DashDiv
+{   
+    border-radius: 5px;
+    font-size: 30px;
+    width: 20%;
+    height: 10%;
+    margin-left: 39%;
+    text-align: center;
+    padding: 50px;
+    background-color: #69BDD9;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+.buttons
+{   
+    border-radius: 5px;
+    border: 1px solid #48ABD5;
+    font-size: 15px;
+    width: 30%;
+    height: 40%;
+    background-color: #FFFFFF;
+    color: #48ABD5;
+    font-family: 'Lobster', cursive;
+}
+.buttons:active {
+    background-color: #48ABD5;
+    color: #FFFFFF;
+     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .05),
+                inset 2px 2px 3px rgba(0, 0, 0, .05);
+
+}
+
