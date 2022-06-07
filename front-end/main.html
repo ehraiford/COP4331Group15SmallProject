@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="js/code.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+
+<body>
+  <div id="main">
+    <span id="welcome">Welcome, User!</span> <br>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState === 'complete') {
+          console.log("userId: " + findCookieValue("userId"));
+          if (findCookieValue("userId") == null) {
+            DashboardScreen();
+          }
+        }
+      };
+      let name = findCookieValue("firstName");
+      if (name != "" && name != null) {
+        document.getElementById("welcome").innerHTML = "Welcome, " + name + "!";
+      }
+    </script>
+    <button type="button" id="logoutButton" class="buttons" onclick="onLogout();"> Logout </button>
+  </div>
+</body>
+</html>
