@@ -16,26 +16,48 @@
         $stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password)  VALUES(?,?,?,?)");
         $stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
         $stmt->execute();
-	    	$stmt->close();
-	    	$conn->close();
-	    	returnWithError("");
-	}
+        $stmt->close();
 
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
+        $stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Login=? AND Password =?");
+        $stmt->bind_param("ss", $Login, $Password);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-	function sendResultInfoAsJson( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
-	
-	function returnWithError( $err )
-	{
-		$retValue = '{"error":"' . $err . '"}';
-		sendResultInfoAsJson( $retValue );
-	}
-	
+        if( $row = $result->fetch_assoc() )
+        {
+                returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
+        }
+        else
+        {
+                returnWithError("Failed to Create User");
+        }
+
+        $stmt->close();
+        $conn->close();
+        }
+
+        function getRequestInfo()
+        {
+                return json_decode(file_get_contents('php://input'), true);
+        }
+
+        function sendResultInfoAsJson( $obj )
+        {
+                header('Content-type: application/json');
+                echo $obj;
+        }
+
+        function returnWithError( $err )
+        {
+                $retValue = '{"ID":-1,"FirstName":"","LastName":"","error":"' . $err . '"}';
+                sendResultInfoAsJson( $retValue );
+        }
+
+        function returnWithInfo( $FirstName, $LastName, $ID )
+        {
+                $retValue = '{"ID":' . $ID . ',"FirstName":"' . $FirstName . '","LastName":"' . $LastName . '","error":""}';
+                sendResultInfoAsJson( $retValue );
+        }
+
 ?>
+
