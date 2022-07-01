@@ -1,31 +1,29 @@
-body 
+body
 {
   background-color: #48ABD5;
 }
 
-#title 
+#title
 {
     font-size: 85px;
     width: 100%;
-    margin: 2% 2%;
     text-align: center;
     font-family: 'Lobster', cursive;
     color: #FFFFFF;
 }
 
 #inner-title{
-    font-size: 1.5em;
+    font-size: 50px;
     font-family: 'Lobster', cursive;
     color: #FFFFFF;
 }
 
 #DashDiv
-{   
+{
     border-radius: 5px;
     font-size: 30px;
-    width: 20%;
-    height: 10%;
-    margin-left: 39%;
+    width: 30%;
+    height: 20%;
     text-align: center;
     padding: 50px;
     background-color: #69BDD9;
@@ -39,15 +37,17 @@ input:focus::placeholder {
   color: transparent;
 }
 .buttons
-{   
+{
     border-radius: 5px;
     border: 1px solid #48ABD5;
-    font-size: 15px;
+    font-size: 18px;
     width: 30%;
-    height: 40%;
+    margin-top:5px;
+    height: 10%;
     background-color: #FFFFFF;
     color: #48ABD5;
     font-family: 'Lobster', cursive;
+
 }
 .buttons:active {
     background-color: #48ABD5;
@@ -57,3 +57,35 @@ input:focus::placeholder {
 
 }
 
+@media (min-width: 767.98px) and (max-width: 991.98px)  {
+    #title
+  {
+    font-size: 70px;
+  }
+    #DashDiv
+  {
+    width: 60%;
+    height: 20%;
+  }
+  .buttons
+  {
+  	width:40%;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 767.98px)  {
+    #title
+  {
+    font-size: 70px;
+  }
+    #DashDiv
+  {
+    width: 80%;
+    height: 30%;
+  }
+  .buttons
+  {
+      	  width: 50%;
+  }
+
+}

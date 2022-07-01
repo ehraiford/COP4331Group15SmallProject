@@ -1,31 +1,96 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="js/code.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-  <link href="css/styles.css" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="css/main.css?v=1.3" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/3ce32c6781.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div id="main">
-    <span id="welcome">Welcome, User!</span> <br>
-    <script>
-      document.onreadystatechange = function () {
-        if (document.readyState === 'complete') {
-          console.log("userId: " + findCookieValue("userId"));
-          if (findCookieValue("userId") == null) {
-            DashboardScreen();
-          }
-        }
-      };
-      let name = findCookieValue("firstName");
-      if (name != "" && name != null) {
-        document.getElementById("welcome").innerHTML = "Welcome, " + name + "!";
-      }
-    </script>
-    <button type="button" id="logoutButton" class="buttons" onclick="onLogout();"> Logout </button>
+  <div id="Top">
+    <span id="welcome">Hello, User!</span>
+    <button type="button" id="logout" class="buttons" onclick="onLogout();">Sign
+      out</button>
+    </br>
   </div>
+  <script>
+    document.onreadystatechange = function () {
+      if (document.readyState === 'complete') {
+        if (findCookieValue("userId") == null) {
+          DashboardScreen();
+        }
+      }
+    };
+    let name = findCookieValue("firstName");
+    if (name != "" && name != null) {
+      document.getElementById("welcome").innerHTML = "Welcome, " + name + "!";
+    }
+  </script>
+  <div id=searchEngine>
+    <input type="text" id="search" oninput="lookupSearch();" placeholder="Search for Contacts" />
+    <button type="button" id="newContact" class="buttons" data-toggle="modal" data-target="#newContactModal">+ Create
+      New Contact</button>
+  </div>
+  <script>
+    lookupSearch();
+  </script>
+  <div id="Contacts">
+    <div id="Contacts List">
+      <table id="Contacts Table">
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        <tbody id="contactsLists">
+        </tbody>
+      </table>
+      <span id="contactsMessage">
+        </tbody>
+    </div>
+  </div>
+
+  <div id="newContactModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <span class="close" data-dismiss="modal" onclick="closeNewContact();">&times;</span>
+        <h1>Create New Contact</h1>
+        <input type="text" id="contactName" placeholder="Name" />
+        <input type="text" id="contactEmail" placeholder="Email Address" />
+        <input type="text" id="contactPhone" placeholder="Phone Number" />
+        <button type="button" id="enterContact" class="buttons" data-dismiss= "modal"  onclick="createContacts();">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="newEditModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <span class="close" data-dismiss="modal">&times;</span>
+      <h1>Edit Contact</h1>
+      <input type="text" id="editName" placeholder="Name" />
+        <input type="text" id="editEmail" placeholder="Email Address" />
+        <input type="text" id="editPhone" placeholder="Phone Number" />
+        <button type="button" id="editButton" class="buttons" data-dismiss= "modal" onclick="updateContact(this.id);">Enter</button>
+      </div>
+    </div>
+  </div>
+  <!--bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 </html>

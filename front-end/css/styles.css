@@ -1,13 +1,104 @@
-body 
+body
 {
   background-color: #48ABD5;
 }
 
-#title 
+#title
 {
     font-size: 85px;
     width: 100%;
-    margin: 2% 2%;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: #FFFFFF;
+}
+
+#inner-title{
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
+    color: #FFFFFF;
+}
+
+#DashDiv
+{
+    border-radius: 5px;
+    font-size: 30px;
+    width: 30%;
+    height: 20%;
+    text-align: center;
+    padding: 50px;
+    background-color: #69BDD9;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+.buttons
+{
+    border-radius: 5px;
+    border: 1px solid #48ABD5;
+    font-size: 18px;
+    width: 30%;
+    margin-top:5px;
+    height: 10%;
+    background-color: #FFFFFF;
+    color: #48ABD5;
+    font-family: 'Lobster', cursive;
+
+}
+.buttons:active {
+    background-color: #48ABD5;
+    color: #FFFFFF;
+     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .05),
+                inset 2px 2px 3px rgba(0, 0, 0, .05);
+
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px)  {
+    #title
+  {
+    font-size: 70px;
+  }
+    #DashDiv
+  {
+    width: 60%;
+    height: 20%;
+  }
+  .buttons
+  {
+  	width:40%;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 767.98px)  {
+    #title
+  {
+    font-size: 70px;
+  }
+    #DashDiv
+  {
+    width: 80%;
+    height: 30%;
+  }
+  .buttons
+  {
+      	  width: 50%;
+  }
+
+}
+root@cop4331-lampstack-group15:/var/www/html/css# cat styles.css
+body
+{
+  background-color: #48ABD5;
+}
+
+#title
+{
+    font-size: 85px;
+    width: 100%;
     text-align: center;
     font-family: 'Lobster', cursive;
     color: #FFFFFF;
@@ -20,12 +111,22 @@ body
 }
 
 #loginDiv
-{   
+{
     border-radius: 5px;
     font-size: 30px;
-    width: 20%;
-    height: 40%;
-    margin-left: 39%;
+    width: 30%;
+    height: 50%;
+    text-align: center;
+    padding: 50px;
+    background-color: #69BDD9;
+}
+
+#registerDiv
+{
+    border-radius: 5px;
+    font-size: 30px;
+    width: 30%;
+    height: 65%;
     text-align: center;
     padding: 50px;
     background-color: #69BDD9;
@@ -35,10 +136,10 @@ input[type="text"],input[type="password"]{
     border: 1px solid #2B3A67;
     border-style: none none solid none;
     width: 70%;
-    margin-top: 5%;
     margin-bottom: 3%;
     padding: 10px 10px;
-  font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+
 }
 
 input:focus {
@@ -54,27 +155,28 @@ input:focus::placeholder {
   opacity: 0.8;
 }
 
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
  color: #2B3A67;
   opacity: 0.8;;
 }
 
-::-ms-input-placeholder { 
+::-ms-input-placeholder {
  color: #2B3A67;
   opacity: 0.8;
 }
 
 .buttons
-{   
+{
     border-radius: 5px;
     border: 1px solid #48ABD5;
+    font-size: 17px;
     margin-top: 5px;
-    font-size: 15px;
-    width: 30%;
-    height: 10%;
+    width: 70px;
+    height: 30px;
     background-color: #FFFFFF;
     color: #48ABD5;
     font-family: 'Lobster', cursive;
+
 }
 .buttons:active {
     background-color: #48ABD5;
@@ -82,6 +184,16 @@ input:focus::placeholder {
      box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .05),
                 inset 2px 2px 3px rgba(0, 0, 0, .05);
 
+}
+#firstName
+{
+  font-size: 15px;
+  background-color: #69BDD9;
+}
+#lastName
+{
+  font-size: 15px;
+  background-color: #69BDD9;
 }
 #loginName
 {
@@ -95,9 +207,55 @@ input:focus::placeholder {
   background-color: #69BDD9;
 }
 
+
 #loginCheck
 {
   visibility: hidden;
   font-size: 15px;
-  color: #E53D00;
+  color: #E34F26;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px)  {
+    #title
+  {
+    font-size: 70px;
+
+  }
+    #loginDiv
+  {
+    width: 50%;
+    height: 55%;
+  }
+
+  #registerDiv
+{
+    width: 50%;
+    height: 60%;
+}
+  .buttons {
+    width: 50%;
+  }
+
+}
+
+@media (min-width: 100px) and (max-width: 767.98px)  {
+    #title
+  {
+    font-size: 70px;
+  }
+    #loginDiv
+  {
+    width: 90%;
+    height: 50%;
+  }
+  #registerDiv
+{
+    width: 100%;
+    height: 70%;
+}
+
+  .buttons {
+    width: 40%;
+  }
 }
